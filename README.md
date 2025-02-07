@@ -1,8 +1,3 @@
-Below is an example of a `README.md` file that explains your project, its features, setup instructions, and more. You can customize it further as your project evolves.
-
----
-
-```markdown
 # GraphRAG Coppermind Explorer
 
 A scalable, full-stack project that webscrapes [coppermind.net](https://coppermind.net) to create a graph-based database, links content using GraphRAG techniques, and interfaces with an open-source LLM (via AWS Bedrock API). The backend is built with FastAPI, containerized for deployment (e.g., on AWS Lambda), and tested with pytest. A React-based frontend provides a sign-in page and chat interface to converse with the LLM.
