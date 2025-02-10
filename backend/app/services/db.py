@@ -3,7 +3,7 @@ from neo4j import GraphDatabase
 class Neo4jHelper:
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
-        self.create_unique_constraint()  # Ensure unique URL nodes are enforced
+        # self.create_unique_constraint()  # Optionally enforce unique URL nodes
 
     def close(self):
         self.driver.close()
@@ -37,3 +37,27 @@ class Neo4jHelper:
         MATCH (a:URL {url: $url1}), (b:URL {url: $url2})
         MERGE (a)-[:LINKS_TO]->(b)
         """, url1=url1, url2=url2)
+
+    # New method to create an article node from a dictionary
+    def create_article_node(self, article):
+        """
+        Creates an Article node with properties provided in the article dictionary.
+        Expected keys: "title", "text", "link", "links"
+        """
+        with self.driver.session() as session:
+            session.execute_write(self._create_article_node, article)
+
+    @staticmethod
+    def _create_article_node(tx, article):
+        query = """
+        CREATE (a:Article {title: $title, text: $text, link: $link, links: $links})
+        RETURN a
+        """
+        result = tx.run(
+            query,
+            title=article["title"],
+            text=article["text"],
+            link=article["link"],
+            links=article["links"]
+        )
+        return result.single()[0]

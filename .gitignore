@@ -1,0 +1,72 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment directories
+env/
+venv/
+ENV/
+.venv/
+.pyenv/
+.python-version
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Python-specific logs
+*.log
+*.pot
+*.py[co]
+
+# Testing
+.tox/
+.nox/
+coverage/
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Editor and IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.*
+*.ini
+*.cfg
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Pipenv files
+Pipfile
+Pipfile.lock
+
+# Poetry files
+poetry.lock
+
+# Debugging
+debug.log
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Generated documentation
+docs/_build/
